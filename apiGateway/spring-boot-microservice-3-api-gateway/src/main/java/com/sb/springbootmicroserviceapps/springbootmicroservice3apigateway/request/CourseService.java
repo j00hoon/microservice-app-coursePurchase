@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient(value = "course-service", path="/api/course", url="${course.service.url}",
+@FeignClient(value = "course-service", path="/api/course", //url="${course.service.url}",
 			configuration = FeignConfiguration.class)
 public interface CourseService 
 {

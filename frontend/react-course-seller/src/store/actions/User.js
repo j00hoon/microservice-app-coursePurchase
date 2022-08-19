@@ -1,0 +1,21 @@
+import { SET_CURRENT_USER, CLEAR_CURRENT_USER } from "../Type";
+
+
+// Declared an object regarding to an action
+// Must have "type"
+// The below methods are "Action Creator"
+
+export const setCurrentUser = (user) => {
+    return {
+        type: SET_CURRENT_USER,
+        payload: user,
+    };
+};
+
+
+
+export const clearCurrentUser = () => {
+    return {
+        type: CLEAR_CURRENT_USER,
+    };
+};
