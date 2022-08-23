@@ -45,6 +45,13 @@ public class AuthenticationController
 	@ResponseStatus(HttpStatus.OK)
 	public User signIn(@RequestBody User user)
 	{
+//		if(userService.findByUsername(user.getUsername()).isPresent())
+//		{
+//			return userService.findByUsername(user.getUsername()).get();
+//		}// if
+//		
+//		return null;
+		
 		return authenticationService.signInAndReturnJWT(user);
 	}
 

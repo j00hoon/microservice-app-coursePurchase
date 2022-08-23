@@ -1,9 +1,9 @@
 export default class Course{
-    constructor(title, subtitle, price, createTime, id){
+    constructor(id, title, subtitle, price, createdTime){
+        this.id = id;
         this.title = title;
         this.subtitle = subtitle;
         this.price = price;
-        this.createTime = createTime;
-        this.id = id;
+        this.createdTime = createdTime;
     }
 }

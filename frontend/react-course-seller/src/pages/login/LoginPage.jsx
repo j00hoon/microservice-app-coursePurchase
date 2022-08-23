@@ -25,7 +25,7 @@ function LoginPage() {
 
     // 1st parameter is useEffect() function, 2nd parameter is dependency array
     // if the 2nd array is empty, it is going to be conducted everytime when rendering happens
-    useEffect( () => {
+    useEffect(() => {
         if(currentUser?.id){
             navigate('/profile');
         }   
@@ -97,7 +97,7 @@ function LoginPage() {
                 className={submitted ? 'was-validated' : ''}>
 
                     <div className="form-group">
-                        <label htmlFor="name">Username : </label>
+                        <label htmlFor="username">Username : </label>
                         <input type="text" 
                                 className="form-control" 
                                 name="username" 
@@ -111,7 +111,7 @@ function LoginPage() {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="name">Password : </label>
+                        <label htmlFor="password">Password : </label>
                         <input type="password" 
                                 className="form-control" 
                                 name="password" 

@@ -27,7 +27,6 @@ public class SecurityUtils
 		if(StringUtils.hasLength(bearerToken) && bearerToken.startsWith(AUTH_TOKEN_PREFIX))
 		{
 			return bearerToken.substring(7);
-				
 		}// if
 		
 		return null;

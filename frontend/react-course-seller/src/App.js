@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { NavBar } from './component/Nav-bar';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
@@ -9,6 +9,8 @@ import { ProfilePage } from './pages/profile/ProfilePage';
 import { AdminPage } from './pages/admin/AdminPage';
 import { NotFoundPage } from './pages/error/NotFoundPage';
 import { UnauthorizedPage } from './pages/error/UnauthorizedPage';
+import { AuthGuard } from './guards/AuthGuard';
+import { Role } from './models/Role';
 
 function App() {
   return (
@@ -39,8 +41,14 @@ function App() {
           <Route path="/home" element={<HomePage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/register" element={<RegisterPage/>} />
-          <Route path="/profile" element={<ProfilePage/>} />
-          <Route path="/admin" element={<AdminPage/>} />
+          <Route path="/profile" 
+                      element={<AuthGuard roles={[Role.ADMIN, Role.USER]}>
+                                    <ProfilePage/>
+                              </AuthGuard>} />  
+          <Route path="/admin" 
+                      element={<AuthGuard roles={[Role.ADMIN]}>
+                                    <AdminPage/>
+                              </AuthGuard>} />
           <Route path="/404" element={<NotFoundPage/>} />
           <Route path="/401" element={<UnauthorizedPage/>} />
           <Route path="*" element={<NotFoundPage/>} />

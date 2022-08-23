@@ -38,8 +38,10 @@ public class UserController
 	@PutMapping("/update/{role}")
 	@ResponseStatus(HttpStatus.OK)
 	public boolean updateUserRole(@AuthenticationPrincipal UserPrincipal userPrincipal, @PathVariable Role role)
+	//public boolean updateUserRole(@RequestBody String username, @PathVariable Role role)
 	{
 		userService.updateUserRole(userPrincipal.getUsername(), role);
+		//userService.updateUserRole(username, role);
 		
 		return true;
 	}

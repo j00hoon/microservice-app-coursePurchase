@@ -33,7 +33,7 @@ public class CourseApiController
 	
 	@DeleteMapping("/delete/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
-	public void deleteCourse(@PathVariable long id)
+	public void deleteCourse(@PathVariable("id") long id)
 	{
 		courseService.deleteCourse(id);
 	}
@@ -45,9 +45,9 @@ public class CourseApiController
 		return courseService.findAllCourses();
 	}
 	
-	@PatchMapping("/partialUpdate/{id}")
+	@PatchMapping(path = "/partialUpdate/{id}", consumes = "application/json")
 	@ResponseStatus(HttpStatus.OK)
-	public Course partialUpdateCourse(@PathVariable long id, @RequestBody Course course)
+	public Course partialUpdateCourse(@PathVariable("id") long id, @RequestBody Course course)
 	{
 		Course updatedCourse = courseService.findCourseById(id);
 		

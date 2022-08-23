@@ -5,7 +5,6 @@ import User from '../../models/User';
 import AuthenticationService from '../../services/Authentication.service';
 import './RegisterPage.css';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { faUserNinja } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 
@@ -81,7 +80,13 @@ const RegisterPage = () => {
             setLoading(false);
         })
 
-        e.target.reset();
+        setUser('', '', '')
+        this.setState({
+            name: '',
+            username : '',
+            password : '',
+        })
+
     };
 
 
@@ -117,7 +122,7 @@ const RegisterPage = () => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="name">Username : </label>
+                        <label htmlFor="username">Username : </label>
                         <input type="text" 
                                 className="form-control" 
                                 name="username" 
@@ -131,7 +136,7 @@ const RegisterPage = () => {
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="name">Password : </label>
+                        <label htmlFor="password">Password : </label>
                         <input type="password" 
                                 className="form-control" 
                                 name="password" 

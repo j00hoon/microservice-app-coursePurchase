@@ -42,12 +42,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
 		
 		http.authorizeHttpRequests()
 			.antMatchers("/api/authentication/**").permitAll() // login and register pre-path
-			.antMatchers("/api/user/**").permitAll()  
-			.antMatchers("/gateway/course/**").hasRole("ADMIN")  // ADMIN role user can access any method using "/gateway/course/**"
-			.antMatchers("/gateway/purchase/**").hasRole("ADMIN")
+			.antMatchers("/api/user/**").permitAll()
+			.antMatchers("/gateway/course/**").permitAll()
+			.antMatchers("/gateway/purchase/**").permitAll()
+//			.antMatchers("/gateway/course/**").hasRole("ADMIN")  // ADMIN role user can access any method using "/gateway/course/**"
+//			.antMatchers("/gateway/purchase/**").hasRole("ADMIN")
 			.anyRequest().authenticated();
 		
-		http.addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
+		//http.addFilterBefore(jwtAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
 	}
 	
 	@Override
